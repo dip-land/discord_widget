@@ -25,7 +25,7 @@ window.addEventListener('load', () => {
         //header
         let head = document.createElement('widget-header');
         let logo = document.createElement('widget-logo');
-        let default_logo_value = 'url("https://raw.githubusercontent.com/dip-land/discord_widget/refs/heads/main/discord-logo-white.svg")';
+        let default_logo_value = 'https://raw.githubusercontent.com/dip-land/discord_widget/refs/heads/main/discord-logo-white.svg';
         try {
             logo.style.setProperty('background', `url(${new URL(widget.getAttribute('logo') ?? default_logo_value)})`);
         } catch (error) {
