@@ -7,7 +7,7 @@ window.addEventListener('load', () => {
     let style_sheet = document.createElement('link');
     style_sheet.setAttribute('type', 'text/css');
     style_sheet.setAttribute('rel', 'stylesheet');
-    style_sheet.setAttribute('href', 'https://cdn.jsdelivr.net/gh/dip-land/discord_widget/index.css');
+    style_sheet.setAttribute('href', 'https://cdn.jsdelivr.net/gh/dip-land/discord_widget@latest/index.css');
     document.head.append(style_sheet);
     for (let widget of document.getElementsByTagName('discord-widget')) {
         let body = document.createElement('widget-body');
