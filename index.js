@@ -7,12 +7,10 @@ window.addEventListener('load', () => {
     let style_sheet = document.createElement('link');
     style_sheet.setAttribute('type', 'text/css');
     style_sheet.setAttribute('rel', 'stylesheet');
-    style_sheet.setAttribute(
-        'href',
-        'https://raw.githubusercontent.com/dip-land/discord_widget/refs/heads/main/index.css',
-    );
+    style_sheet.setAttribute('href', 'https://raw.githubusercontent.com/dip-land/discord_widget/refs/heads/main/index.css');
     document.head.append(style_sheet);
     for (let widget of document.getElementsByTagName('discord-widget')) {
+        let body = document.createElement('widget-body');
         //getting attributes
         let id = widget.getAttribute('id') ?? null;
         let width = widget.getAttribute('width') ?? '350px';
@@ -20,19 +18,22 @@ window.addEventListener('load', () => {
         let footerText = widget.getAttribute('footerText') ?? '';
         let color = widget.getAttribute('color') ?? '#5865f2';
         let buttonColor = widget.getAttribute('buttonColor') ?? color;
-        let buttonHoverColor =
-            widget.getAttribute('buttonHoverColor') ??
-            `#${LDColor(buttonColor.replace('#', ''), -10)}`;
+        let buttonHoverColor = widget.getAttribute('buttonHoverColor') ?? `#${LDColor(buttonColor.replace('#', ''), -10)}`;
         let backgroundColor = widget.getAttribute('backgroundColor') ?? '#0c0c0d';
         let textColor = widget.getAttribute('textColor') ?? '#fff';
         let statusColor = widget.getAttribute('statusColor') ?? '#858585';
         //header
         let head = document.createElement('widget-header');
         let logo = document.createElement('widget-logo');
+        let default_logo_value = 'url("https://raw.githubusercontent.com/dip-land/discord_widget/refs/heads/main/discord-logo-white.svg")';
+        try {
+            logo.style.setProperty('background', `url(${new URL(widget.getAttribute('logo') ?? default_logo_value)})`);
+        } catch (error) {
+            body.innerHTML = 'Logo is a malformed URL.';
+        }
         let count = document.createElement('widget-header-count');
         head.append(logo, count);
         //body
-        let body = document.createElement('widget-body');
         if (!id) body.innerHTML = 'No Discord server ID was specified.';
         //footer
         let footer = document.createElement('widget-footer');
@@ -40,11 +41,7 @@ window.addEventListener('load', () => {
         let joinButton = document.createElement('widget-button-join');
         joinButton.addEventListener('click', (e) => {
             if (joinButton.getAttribute('href')) {
-                window.open(
-                    joinButton.getAttribute('href') || '',
-                    joinButton.getAttribute('target') || '',
-                    '',
-                );
+                window.open(joinButton.getAttribute('href') || '', joinButton.getAttribute('target') || '', '');
             }
         });
         footerInfo.innerText = footerText;
@@ -66,25 +63,19 @@ window.addEventListener('load', () => {
             .then((data) => {
                 data.json().then((data) => {
                     //member count
-                    count.innerHTML = `<strong>${data.presence_count || 0
-                        }</strong> Members Online`;
+                    count.innerHTML = `<strong>${data.presence_count || 0}</strong> Members Online`;
                     //join button
                     joinButton.setAttribute('href', data.instant_invite);
                     joinButton.setAttribute('target', '_blank');
-                    if (data.instant_invite === null || data.instant_invite === undefined)
-                        joinButton.remove();
+                    if (data.instant_invite === null || data.instant_invite === undefined) joinButton.remove();
                     //users
                     for (const user of data.members ?? []) {
                         let member = document.createElement('widget-member');
                         let avatar = document.createElement('widget-member-avatar');
                         let avatarIMG = document.createElement('img');
-                        let status = document.createElement(
-                            `widget-member-status-${user.status}`,
-                        );
+                        let status = document.createElement(`widget-member-status-${user.status}`);
                         let name = document.createElement('widget-member-name');
-                        let statusText = document.createElement(
-                            'widget-member-status-text',
-                        );
+                        let statusText = document.createElement('widget-member-status-text');
                         avatarIMG.src = user.avatar_url;
                         status.classList.add('widget-member-status');
                         name.innerText = user.username;
@@ -106,12 +97,5 @@ function LDColor(color, percent) {
     let R = (num >> 16) + amt;
     let B = ((num >> 8) & 0x00ff) + amt;
     let G = (num & 0x0000ff) + amt;
-    return (
-        0x1000000 +
-        (R < 255 ? (R < 1 ? 0 : R) : 255) * 0x10000 +
-        (B < 255 ? (B < 1 ? 0 : B) : 255) * 0x100 +
-        (G < 255 ? (G < 1 ? 0 : G) : 255)
-    )
-        .toString(16)
-        .slice(1);
+    return (0x1000000 + (R < 255 ? (R < 1 ? 0 : R) : 255) * 0x10000 + (B < 255 ? (B < 1 ? 0 : B) : 255) * 0x100 + (G < 255 ? (G < 1 ? 0 : G) : 255)).toString(16).slice(1);
 }

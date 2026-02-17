@@ -58,10 +58,11 @@ discord-widget widget-header {
 }
 
 discord-widget widget-header widget-logo {
-    background: url(https://raw.githubusercontent.com/dip-land/discord_widget/refs/heads/main/discord-logo-white.svg) 50% no-repeat;
     width: 124px;
     height: 34px;
-    background-size: 124px 34px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     display: inline-block;
     -webkit-transition: opacity 0.25s ease-out;
     -o-transition: opacity 0.25s ease-out;
