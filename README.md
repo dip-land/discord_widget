@@ -1,7 +1,7 @@
 An easy to use customizable Discord widget.
 
 # Usage
-Simply add `<script src="https://cdn.jsdelivr.net/gh/dip-land/discord_widget/refs/heads/main/index.js"></script>` to the body or head of your website then add `<discord-widget id=""></discord-widget>` wherever you want a widget.
+Simply add `<script src="https://cdn.jsdelivr.net/gh/dip-land/discord_widget/index.js"></script>` to the body or head of your website then add `<discord-widget id=""></discord-widget>` wherever you want a widget.
 
 ## Parameters
 | Attribute        | Description             | Required | Default Value                                                                              |
@@ -9,7 +9,7 @@ Simply add `<script src="https://cdn.jsdelivr.net/gh/dip-land/discord_widget/ref
 | id               | Server ID               | [X]      | null                                                                                       |
 | width            | Widget Width            | [ ]      | 350px                                                                                      |
 | height           | Widget Height           | [ ]      | 500px                                                                                      |
-| logo             | Widget Logo*            | [ ]      | https://cdn.jsdelivr.net/gh/dip-land/discord_widget/refs/heads/main/discord-logo-white.svg |
+| logo             | Widget Logo*            | [ ]      | https://cdn.jsdelivr.net/gh/dip-land/discord_widget/discord-logo-white.svg                 |
 | footerText       | Footer Text             | [ ]      |                                                                                            |
 | color            | Header Color            | [ ]      | #5865f2                                                                                     |
 | buttonColor      | Join Button Color       | [ ]      | **                                                                                         |
