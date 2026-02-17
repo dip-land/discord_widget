@@ -17,6 +17,7 @@ Simply add `<script src="https://cdn.jsdelivr.net/gh/dip-land/discord_widget/ind
 | backgroundColor  | Main Background Color   | [ ]      | #0c0c0d                                                                                     |
 | textColor        | Main Text Color         | [ ]      | #ffffff                                                                                     |
 | statusColor      | User Status Text Color  | [ ]      | #858585                                                                                     |
+
 [^1] logo recommended size is 248x68 (can really be any size but css resizes it to 124x34)
 [^2] buttonColor is set to the same value of color if not set by user
 [^3] buttonHoverColor will auto be generated based on buttonColor or color if its not manually set
