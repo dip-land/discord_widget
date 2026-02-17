@@ -1,5 +1,8 @@
 An easy to use customizable Discord widget.
 
+# Demo
+The demo can be viewed on [codepen](https://codepen.io/dipped_bass/pen/zYPoLye)
+
 # Usage
 Simply add `<script src="https://cdn.jsdelivr.net/gh/dip-land/discord_widget/index.js"></script>` to the body or head of your website then add `<discord-widget id=""></discord-widget>` wherever you want a widget.
 
