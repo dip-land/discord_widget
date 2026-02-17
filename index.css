@@ -60,9 +60,9 @@ discord-widget widget-header {
 discord-widget widget-header widget-logo {
     width: 124px;
     height: 34px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
     display: inline-block;
     -webkit-transition: opacity 0.25s ease-out;
     -o-transition: opacity 0.25s ease-out;
