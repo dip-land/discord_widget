@@ -7,7 +7,7 @@ window.addEventListener('load', () => {
     let style_sheet = document.createElement('link');
     style_sheet.setAttribute('type', 'text/css');
     style_sheet.setAttribute('rel', 'stylesheet');
-    style_sheet.setAttribute('href', 'https://raw.githubusercontent.com/dip-land/discord_widget/refs/heads/main/index.css');
+    style_sheet.setAttribute('href', 'https://cdn.jsdelivr.net/gh/dip-land/discord_widget/refs/heads/main/index.css');
     document.head.append(style_sheet);
     for (let widget of document.getElementsByTagName('discord-widget')) {
         let body = document.createElement('widget-body');
@@ -25,7 +25,7 @@ window.addEventListener('load', () => {
         //header
         let head = document.createElement('widget-header');
         let logo = document.createElement('widget-logo');
-        let default_logo_value = 'https://raw.githubusercontent.com/dip-land/discord_widget/refs/heads/main/discord-logo-white.svg';
+        let default_logo_value = 'https://cdn.jsdelivr.net/gh/dip-land/discord_widget/refs/heads/main/discord-logo-white.svg';
         try {
             logo.style.setProperty('background', `url(${new URL(widget.getAttribute('logo') ?? default_logo_value)})`);
         } catch (error) {
